@@ -17,3 +17,35 @@ btns.forEach(item => {
     alert("EMAIL: fakeEmail@fakeEmailHost.com FOR MORE INFO!!!!");
   });
 });
+
+colorList = [
+  "#9400D3",
+  "#4B0082",
+  "#0000FF",
+  "#00FF00",
+  "#FFFF00",
+  "#FF7F00",
+  "#FF0000"
+];
+
+let ctnr = document.querySelectorAll(".container");
+
+let i = 0;
+
+ctnr.forEach(item => {
+  item.addEventListener("wheel", event => {
+    if (i > colorList.length) {
+      i = 0;
+    } else {
+      i++;
+    }
+    event.target.style.backgroundColor = colorList[i];
+    event.stopPropagation();
+  });
+});
+
+// ctnr.addEventListener("wheel", item => {
+//   item.stopPropagation();
+//   i++;
+//   item.target.style.backgroundColor = colorList[i];
+// });
