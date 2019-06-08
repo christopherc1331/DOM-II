@@ -8,6 +8,9 @@ headNav.forEach(item => {
   item.addEventListener("mouseout", e => {
     e.target.style.fontSize = "1.6rem";
   });
+  item.addEventListener("click", e => {
+    e.preventDefault();
+  });
 });
 
 let btns = document.querySelectorAll(".btn");
@@ -32,6 +35,11 @@ let ctnr = document.querySelectorAll(".container");
 
 let i = 0;
 
+let logo = document.querySelector(".logo-heading");
+console.log(logo);
+
+// logo.textContent = "Chris is awesome!";
+
 ctnr.forEach(item => {
   item.addEventListener("wheel", event => {
     if (i > colorList.length) {
@@ -44,8 +52,35 @@ ctnr.forEach(item => {
   });
 });
 
-// ctnr.addEventListener("wheel", item => {
-//   item.stopPropagation();
-//   i++;
-//   item.target.style.backgroundColor = colorList[i];
-// });
+logo.addEventListener("click", event => {
+  if (logo.textContent === "Chris is awesome!") {
+    logo.textContent = "Fun Bus";
+  } else {
+    logo.textContent = "Chris is awesome!";
+  }
+});
+
+document.querySelector(".intro img").addEventListener("drag", item => {
+  item.target.style.display = "none";
+});
+
+let allPics = document.querySelectorAll("img");
+
+allPics.forEach(item => {
+  item.addEventListener("click", event => {
+    event.target.style.filter = "invert(100%)";
+  });
+});
+
+let allParagraphs = document.querySelectorAll("p");
+
+allParagraphs.forEach(item => {
+  item.addEventListener("cut", event => {
+    event.target.textContent =
+      "Whoa whoa there buddy, save the cutting for Edward Scissorhands!";
+  });
+  item.addEventListener("copy", event => {
+    event.target.textContent =
+      "If you're gonna copy my style at least gimme a shoutout!  My name is Blake Johnson, and I'm ready for action!";
+  });
+});
